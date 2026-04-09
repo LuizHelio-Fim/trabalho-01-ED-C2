@@ -48,8 +48,10 @@ public class Aluno {
 
 	@Override
 	public String toString() {
-		return "Aluno [matricula=" + matricula + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone
-				+ "]";
+		return "\nMatricula:" + matricula + "\n"
+			 + "Nome:" + nome + "\n"
+			 + "Endereco:" + endereco + "\n"
+			 + "Telefone:" + telefone;
 	}
 	
 	

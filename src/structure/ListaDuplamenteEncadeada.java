@@ -79,14 +79,6 @@ public class ListaDuplamenteEncadeada {
 		}
 	}
 	
-	public No pesquisarNo (Aluno x){
-		No atual = this.prim;
-		while ((atual != null) && (atual.getInfo() != x)) {
-			atual = atual.getProx();
-		}
-		return atual;
-	}
-	
 	public Aluno buscarPorNome(String nome) {
 		No atual = this.prim;
 		while ((atual != null) && (!atual.getInfo().getNome().equalsIgnoreCase(nome))) {
@@ -95,9 +87,9 @@ public class ListaDuplamenteEncadeada {
 		return (atual != null) ? atual.getInfo() : null;
 	}
 	
-	public boolean removerNo (int x){
+	public boolean removerAluno (int matricula){
 		No atual = this.prim;
-		while ((atual != null) && (atual.getInfo().getMatricula() != x)){
+		while ((atual != null) && (atual.getInfo().getMatricula() != matricula)){
 			atual = atual.getProx();
 		}
 		if (atual == null) {
