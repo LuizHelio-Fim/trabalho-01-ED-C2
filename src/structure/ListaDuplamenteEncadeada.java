@@ -38,16 +38,45 @@ public class ListaDuplamenteEncadeada {
 		return (this.prim == null);
 	}
 	
-	public void inserirUltimo (Aluno elem){
-		No novoNo = new No (elem);
+	public void inserirUltimo (Aluno aluno){
+		No novoNo = new No (aluno);
 		this.quantNos++;
-		if (this.eVazia())
+		if (this.eVazia()) {
 			this.prim = novoNo;
-		else {
+		} else {
 			novoNo.setAnt(this.ult);
 			this.ult.setProx(novoNo);
 		}
 		this.ult = novoNo;
+	}
+	
+	public void inserirOrdenado (Aluno aluno) {
+		No novoNo = new No (aluno);
+		this.quantNos++;
+		if (this.eVazia()) {
+			this.prim = novoNo;
+			this.ult = novoNo;
+			
+		} else if (this.prim.getInfo().getMatricula() > aluno.getMatricula()) {
+			novoNo.setProx(this.prim);
+			this.prim.setAnt(novoNo);
+			this.prim = novoNo;
+			
+		} else if (this.ult.getInfo().getMatricula() < aluno.getMatricula()) {
+			novoNo.setAnt(this.ult);
+			this.ult.setProx(novoNo);
+			this.ult = novoNo;
+			
+		} else {
+			No atual = this.prim;
+			while ((atual != null) && (atual.getInfo().getMatricula() < aluno.getMatricula())) {
+				atual = atual.getProx();
+			}
+			novoNo.setProx(atual);
+			novoNo.setAnt(atual.getAnt());		
+			atual.getAnt().setProx(novoNo);
+			atual.setAnt(novoNo);
+		}
 	}
 	
 	public No pesquisarNo (Aluno x){
@@ -58,9 +87,17 @@ public class ListaDuplamenteEncadeada {
 		return atual;
 	}
 	
-	public boolean removerNo (Aluno x){
+	public Aluno buscarPorNome(String nome) {
 		No atual = this.prim;
-		while ((atual != null) && (atual.getInfo() != x)){
+		while ((atual != null) && (!atual.getInfo().getNome().equalsIgnoreCase(nome))) {
+			atual = atual.getProx();
+		}
+		return (atual != null) ? atual.getInfo() : null;
+	}
+	
+	public boolean removerNo (int x){
+		No atual = this.prim;
+		while ((atual != null) && (atual.getInfo().getMatricula() != x)){
 			atual = atual.getProx();
 		}
 		if (atual == null) {
