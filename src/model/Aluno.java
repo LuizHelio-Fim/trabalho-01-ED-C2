@@ -2,23 +2,23 @@ package model;
 
 public class Aluno {
 	
-	private String matricula;
+	private int matricula;
 	private String nome;
 	private String endereco;
 	private String telefone;
 	
-	public Aluno(String matricula, String nome, String endereco, String telefone) {
+	public Aluno(int matricula, String nome, String endereco, String telefone) {
 		this.matricula = matricula;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
 	}
 
-	public String getMatricula() {
+	public int getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(String matricula) {
+	public void setMatricula(int matricula) {
 		this.matricula = matricula;
 	}
 
