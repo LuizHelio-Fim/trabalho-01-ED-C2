@@ -21,13 +21,13 @@ public class Menu {
             System.out.println("\n===== MENU =====");
             System.out.println("1 - Inserir aluno");
             System.out.println("2 - Remover aluno");
-            System.out.println("3 - Transferir aluno");
+            System.out.println("3 - Transferir aluno para outra escola");
             System.out.println("4 - Buscar aluno por nome");
             System.out.println("5 - Sair");
-            System.out.print("Escolha: ");
+            System.out.print(">: ");
 
             opcao = scanner.nextInt();
-            scanner.nextLine(); // limpar buffer
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
@@ -43,7 +43,7 @@ public class Menu {
                     buscarAluno();
                     break;
                 case 5:
-                    System.out.println("Encerrando...");
+                    System.out.println("Finalizando...");
                     break;
                 default:
                     System.out.println("Opção inválida!");
