@@ -15,7 +15,7 @@ public class Menu {
     }
 
     public void exibirMenu() {
-        int opcao;
+        char opcao;
 
         do {
             System.out.println("\n===== MENU =====");
@@ -26,23 +26,23 @@ public class Menu {
             System.out.println("5 - Sair");
             System.out.print(">: ");
 
-            opcao = scanner.nextInt();
+            opcao = scanner.next().charAt(0);
             scanner.nextLine();
 
             switch (opcao) {
-                case 1:
+                case '1':
                     inserirAluno();
                     break;
-                case 2:
+                case '2':
                     removerAluno();
                     break;
-                case 3:
+                case '3':
                     transferirAluno();
                     break;
-                case 4:
+                case '4':
                     buscarAluno();
                     break;
-                case 5:
+                case '5':
                     System.out.println("Finalizando...");
                     break;
                 default:
